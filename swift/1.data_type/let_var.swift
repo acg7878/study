@@ -2,8 +2,6 @@
 let name = "John"
 var age = 20
 
-// 变量声明的正确语法是 `var variableName: Type = value`
-// 这与 C++/Java/C# 的 `Type variableName = value` 不同。
 var num: Int = 20
 var str: String = "John"
 var isStudent: Bool = true
