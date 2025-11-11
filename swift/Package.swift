@@ -36,6 +36,12 @@ let package = Package(
         // 7. Closures Examples
         .executable(name: "closure_syntax", targets: ["closure_syntax"]),
         .executable(name: "closures_in_api", targets: ["closures_in_api"]),
+
+        // 8. Error Handling Examples
+        .executable(name: "error_handling", targets: ["error_handling"]),
+
+        // 9. Concurrency Examples
+        .executable(name: "async_await", targets: ["async_await"]),
     ],
     targets: [
         // --- 1. Data Type Examples ---
@@ -135,6 +141,20 @@ let package = Package(
             name: "closures_in_api",
             path: "7.closures",
             sources: ["2_closures_in_api.swift"]
+        ),
+
+        // --- 8. Error Handling Examples ---
+        .executableTarget(
+            name: "error_handling",
+            path: "8.error",
+            sources: ["1_error_handling.swift"]
+        ),
+
+        // --- 9. Concurrency Examples ---
+        .executableTarget(
+            name: "async_await",
+            path: "9.concurrency",
+            sources: ["1_async_await.swift"]
         ),
     ]
 )
