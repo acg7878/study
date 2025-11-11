@@ -8,8 +8,8 @@ let package = Package(
     products: [
         // 1. Data Type Examples
         .executable(name: "let_var", targets: ["let_var"]),
-        .executable(name: "tuple_example", targets: ["tuple_example"]),
-        .executable(name: "array_init_example", targets: ["array_init_example"]),
+        .executable(name: "tuple", targets: ["tuple"]),
+        .executable(name: "array_init", targets: ["array_init"]),
 
         // 2. Control Flow Examples
         .executable(name: "if_else", targets: ["if_else"]),
@@ -17,6 +17,13 @@ let package = Package(
         .executable(name: "loops", targets: ["loops"]),
         .executable(name: "control_transfer", targets: ["control_transfer"]),
         .executable(name: "guard_example", targets: ["guard_example"]),
+
+        // 3. Function Examples
+        .executable(name: "func_basics", targets: ["func_basics"]),
+
+        // 5. Compound Type Examples
+        .executable(name: "struct_class", targets: ["struct_class"]),
+        .executable(name: "value_reference", targets: ["value_reference"]),
     ],
     targets: [
         // --- 1. Data Type Examples ---
@@ -26,12 +33,12 @@ let package = Package(
             sources: ["let_var.swift"]
         ),
         .executableTarget(
-            name: "tuple_example",
+            name: "tuple",
             path: "1.data_type/Collection",
             sources: ["tuple.swift"]
         ),
         .executableTarget(
-            name: "array_init_example",
+            name: "array_init",
             path: "1.data_type/Collection/Array",
             sources: ["init.swift"]
         ),
@@ -61,6 +68,25 @@ let package = Package(
             name: "guard_example",
             path: "2.control_flow",
             sources: ["5_guard.swift"]
+        ),
+
+        // --- 3. Function Examples ---
+        .executableTarget(
+            name: "func_basics",
+            path: "3.function",
+            sources: ["1_func_basics.swift"]
+        ),
+        
+        // --- 5. Compound Type Examples ---
+        .executableTarget(
+            name: "struct_class",
+            path: "5.compound_type",
+            sources: ["1_struct_class.swift"]
+        ),
+        .executableTarget(
+            name: "value_reference",
+            path: "5.compound_type",
+            sources: ["2_value_reference.swift"]
         ),
     ]
 )
