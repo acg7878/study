@@ -24,6 +24,10 @@ let package = Package(
         // 5. Compound Type Examples
         .executable(name: "struct_class", targets: ["struct_class"]),
         .executable(name: "value_reference", targets: ["value_reference"]),
+
+        // 7. Closures Examples
+        .executable(name: "closure_syntax", targets: ["closure_syntax"]),
+        .executable(name: "closures_in_api", targets: ["closures_in_api"]),
     ],
     targets: [
         // --- 1. Data Type Examples ---
@@ -87,6 +91,18 @@ let package = Package(
             name: "value_reference",
             path: "5.compound_type",
             sources: ["2_value_reference.swift"]
+        ),
+
+        // --- 7. Closures Examples ---
+        .executableTarget(
+            name: "closure_syntax",
+            path: "7.closures",
+            sources: ["1_closure_syntax.swift"]
+        ),
+        .executableTarget(
+            name: "closures_in_api",
+            path: "7.closures",
+            sources: ["2_closures_in_api.swift"]
         ),
     ]
 )
