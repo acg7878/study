@@ -1,2 +1,9 @@
 output
 .DS_Store
+
+*.exp
+*.lib
+*.exe
+
+.build/
+.vscode/
