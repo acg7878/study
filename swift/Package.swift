@@ -21,6 +21,9 @@ let package = Package(
         // 3. Function Examples
         .executable(name: "func_basics", targets: ["func_basics"]),
 
+        // 4. Optional Examples
+        .executable(name: "optionals", targets: ["optionals"]),
+
         // 5. Compound Type Examples
         .executable(name: "struct_class", targets: ["struct_class"]),
         .executable(name: "value_reference", targets: ["value_reference"]),
@@ -84,6 +87,13 @@ let package = Package(
             name: "func_basics",
             path: "3.function",
             sources: ["1_func_basics.swift"]
+        ),
+
+        // --- 4. Optional Examples ---
+        .executableTarget(
+            name: "optionals",
+            path: "4.optional",
+            sources: ["1_optionals.swift"]
         ),
         
         // --- 5. Compound Type Examples ---
