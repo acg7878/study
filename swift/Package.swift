@@ -25,6 +25,11 @@ let package = Package(
         .executable(name: "struct_class", targets: ["struct_class"]),
         .executable(name: "value_reference", targets: ["value_reference"]),
 
+        // 6. Protocol Examples
+        .executable(name: "protocol_syntax", targets: ["protocol_syntax"]),
+        .executable(name: "protocols_as_types", targets: ["protocols_as_types"]),
+        .executable(name: "protocol_extensions", targets: ["protocol_extensions"]),
+
         // 7. Closures Examples
         .executable(name: "closure_syntax", targets: ["closure_syntax"]),
         .executable(name: "closures_in_api", targets: ["closures_in_api"]),
@@ -91,6 +96,23 @@ let package = Package(
             name: "value_reference",
             path: "5.compound_type",
             sources: ["2_value_reference.swift"]
+        ),
+
+        // --- 6. Protocol Examples ---
+        .executableTarget(
+            name: "protocol_syntax",
+            path: "6.protocol",
+            sources: ["1_protocol_syntax.swift"]
+        ),
+        .executableTarget(
+            name: "protocols_as_types",
+            path: "6.protocol",
+            sources: ["2_protocols_as_types.swift"]
+        ),
+        .executableTarget(
+            name: "protocol_extensions",
+            path: "6.protocol",
+            sources: ["3_protocol_extensions.swift"]
         ),
 
         // --- 7. Closures Examples ---
