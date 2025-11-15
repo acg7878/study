@@ -25,7 +25,17 @@ void sort_lambda() {
     std::cout << std::endl;
 }
 
-
+void mutable_lambda() {
+    int a = 10;
+    // lambda 默认是 const 的，不能修改捕获的变量
+    // 加上 mutable 关键字后，可以修改捕获的变量
+    auto func = [a]() mutable -> int {
+        a++;
+        return a + 1;
+    };
+    std::cout << func() << std::endl;
+    std::cout << a << std::endl;
+}
 
 
 int main() {
