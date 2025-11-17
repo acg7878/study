@@ -12,7 +12,7 @@ inline int socket_init() {
         return -1;
     }
 
-    // 设置 socket 选项，允许地址重用
+    // opt：地址重用选项，SO_REUSEADDR:地址重用选项,SOL_SOCKET:套接字层级
     int opt = 1;
     int ret = setsockopt(fd, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(int));
     if (ret < 0) {
@@ -20,7 +20,5 @@ inline int socket_init() {
         ::close(fd);
         return -1;
     }
-
-
     return fd;
 }
