@@ -31,8 +31,9 @@ void gcc_create_lambda() {
     // 4. Lambda 调用 → 调用闭包对象的 operator()
     // 等价于原代码的 func(1, 2)
     int result = func.operator()(1, 2); 
-
+    int result2 = func(3, 2);
     std::cout << result << std::endl; // 输出 3
+    std::cout << result2 << std::endl; // 输出 3
 }
 
 int main() {
