@@ -1,0 +1,3 @@
+[submodule "Apple/swift/swiftUI/ios-architecture"]
+	path = Apple/swift/swiftUI/ios-architecture
+	url = https://github.com/tailec/ios-architecture.git
