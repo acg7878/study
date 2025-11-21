@@ -19,6 +19,7 @@ class Student: Person {
     }
 
     // 必须实现父类的 required 初始化器
+    // 也需要加上required，这样一整个继承链条都要实现这个init
     required init(name: String, age: Int) {
         self.school = "Unknown"
         super.init(name: name, age: age)
