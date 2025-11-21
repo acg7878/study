@@ -1,3 +1,6 @@
 [submodule "Apple/swift/swiftUI/ios-architecture"]
 	path = Apple/swift/swiftUI/ios-architecture
 	url = https://github.com/tailec/ios-architecture.git
+[submodule "Apple/interview/iOSInterviewQuestions"]
+	path = Apple/interview/iOSInterviewQuestions
+	url = https://github.com/ChenYilong/iOSInterviewQuestions.git
