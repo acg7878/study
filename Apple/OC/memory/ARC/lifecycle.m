@@ -4,7 +4,10 @@
 @property(strong) NSString *SName;
 @property(copy) NSString *CName;
 @property(weak) id weakObject;
-@property(assign) NSInteger age; // 用于非对象的基本数据类型
+
+// 用于非对象的基本数据类型
+// 用于对象的话死后不会置空，变成野指针
+@property(assign) NSInteger age; 
 @end
 
 @implementation Person
