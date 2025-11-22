@@ -30,6 +30,8 @@ int main() {
     Car *car = [[Car alloc] init];
     car.name = @"BMW";
 
+    // id<VehicleProtocol> 能够隐藏具体类型，实现解耦
+    // 还能限制访问权限，让编译器只知道协议里的方法
     id<Vehicleprotocol> vehicle = car;
     [vehicle startEngine];
 
