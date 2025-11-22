@@ -4,3 +4,6 @@
 [submodule "Apple/interview/iOSInterviewQuestions"]
 	path = Apple/interview/iOSInterviewQuestions
 	url = https://github.com/ChenYilong/iOSInterviewQuestions.git
+[submodule "Apple/interview/FBYInterview-iOS"]
+	path = Apple/interview/FBYInterview-iOS
+	url = https://github.com/fanbaoying/FBYInterview-iOS.git
