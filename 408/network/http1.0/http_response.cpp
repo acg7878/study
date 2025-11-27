@@ -63,3 +63,52 @@ HttpResponse HttpResponse::json(const std::string& jsonContent) {
     return response;
 }
 
+HttpResponse HttpResponse::redirect(int code, const std::string& location) {
+    HttpResponse response;
+    
+    // 根据状态码设置状态文本
+    std::string statusText;
+    switch (code) {
+        case 301:
+            statusText = "Moved Permanently";
+            break;
+        case 302:
+            statusText = "Found";
+            break;
+        case 303:
+            statusText = "See Other";
+            break;
+        case 307:
+            statusText = "Temporary Redirect";
+            break;
+        case 308:
+            statusText = "Permanent Redirect";
+            break;
+        default:
+            statusText = "Redirect";
+            break;
+    }
+    
+    response.setStatus(code, statusText);
+    response.setHeader("Location", location);
+    
+    // 重定向响应通常包含一个简单的 HTML 提示（可选）
+    std::string body = "<!DOCTYPE html>\n<html>\n<head>\n<meta charset=\"UTF-8\">\n"
+                      "<meta http-equiv=\"refresh\" content=\"0; url=" + location + "\">\n"
+                      "<title>重定向</title>\n</head>\n<body>\n"
+                      "<h1>" + std::to_string(code) + " " + statusText + "</h1>\n"
+                      "<p>正在重定向到: <a href=\"" + location + "\">" + location + "</a></p>\n"
+                      "</body>\n</html>";
+    
+    response.setBody(body);
+    return response;
+}
+
+HttpResponse HttpResponse::redirect301(const std::string& location) {
+    return redirect(301, location);
+}
+
+HttpResponse HttpResponse::redirect302(const std::string& location) {
+    return redirect(302, location);
+}
+

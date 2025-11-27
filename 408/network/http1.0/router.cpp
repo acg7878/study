@@ -11,6 +11,9 @@ void Router::initializeRoutes() {
     registerRoute("/test", handleTest);
     registerRoute("/hello", handleHello);
     registerRoute("/json", handleJson);
+    registerRoute("/old", handleRedirect301);      // 301 永久重定向示例
+    registerRoute("/temp", handleRedirect302);     // 302 临时重定向示例
+    registerRoute("/redirect-target", handleRedirectTarget);  // 重定向目标页面
 }
 
 void Router::registerRoute(const std::string& path, Handler handler) {
@@ -76,6 +79,8 @@ HttpResponse Router::handleIndex(const HttpRequest& request) {
             <li><a href="/test">测试页面</a></li>
             <li><a href="/hello">Hello World</a></li>
             <li><a href="/json">JSON 数据</a></li>
+            <li><a href="/old">301 永久重定向示例</a></li>
+            <li><a href="/temp">302 临时重定向示例</a></li>
         </ul>
     </div>
 </body>
@@ -136,6 +141,60 @@ HttpResponse Router::handleHello(const HttpRequest& request) {
 HttpResponse Router::handleJson(const HttpRequest& request) {
     std::string jsonContent = R"({"status":"success","message":"HTTP/1.0 JSON响应","data":{"version":"1.0","server":"C++"}})";
     return HttpResponse::json(jsonContent);
+}
+
+HttpResponse Router::handleRedirect301(const HttpRequest& request) {
+    // 301 永久重定向：从 /old 重定向到 /redirect-target
+    return HttpResponse::redirect301("/redirect-target");
+}
+
+HttpResponse Router::handleRedirect302(const HttpRequest& request) {
+    // 302 临时重定向：从 /temp 重定向到 /redirect-target
+    return HttpResponse::redirect302("/redirect-target");
+}
+
+HttpResponse Router::handleRedirectTarget(const HttpRequest& request) {
+    std::string content = R"(<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>重定向目标页面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background: #e8f5e9;
+        }
+        .box {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .success {
+            color: #4caf50;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="success">✓ 重定向成功！</div>
+        <h1>这是重定向目标页面</h1>
+        <p>您已成功通过重定向到达此页面。</p>
+        <p><strong>说明：</strong></p>
+        <ul>
+            <li>访问 <code>/old</code> 会触发 301 永久重定向</li>
+            <li>访问 <code>/temp</code> 会触发 302 临时重定向</li>
+            <li>两种重定向都会将您带到此页面</li>
+        </ul>
+        <p><a href="/">返回首页</a></p>
+    </div>
+</body>
+</html>)";
+    
+    return HttpResponse::ok(content);
 }
 
 HttpResponse Router::handleNotFound(const HttpRequest& request) {

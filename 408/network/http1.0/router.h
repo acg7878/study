@@ -31,6 +31,9 @@ private:
     static HttpResponse handleTest(const HttpRequest& request);
     static HttpResponse handleHello(const HttpRequest& request);
     static HttpResponse handleJson(const HttpRequest& request);
+    static HttpResponse handleRedirect301(const HttpRequest& request);
+    static HttpResponse handleRedirect302(const HttpRequest& request);
+    static HttpResponse handleRedirectTarget(const HttpRequest& request);
     static HttpResponse handleNotFound(const HttpRequest& request);
 };
 

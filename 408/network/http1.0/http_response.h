@@ -33,6 +33,15 @@ public:
     
     // 创建 JSON 响应
     static HttpResponse json(const std::string& jsonContent);
+    
+    // 创建重定向响应
+    static HttpResponse redirect(int code, const std::string& location);
+    
+    // 便捷方法：301 永久重定向
+    static HttpResponse redirect301(const std::string& location);
+    
+    // 便捷方法：302 临时重定向
+    static HttpResponse redirect302(const std::string& location);
 };
 
 #endif // HTTP_RESPONSE_H
