@@ -3,3 +3,4 @@ output/
 .vscode
 build/
 .cache
+buildServer.json
