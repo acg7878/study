@@ -4,7 +4,7 @@ class EagerSingleton {
 private:
     static EagerSingleton instance;
     EagerSingleton() {
-        std::cout << "饿汉式单例构造" << std::endl;
+        std::cout << "EagerSingleton constructor" << std::endl;
     }
     EagerSingleton(const EagerSingleton&) = delete;
     EagerSingleton& operator=(const EagerSingleton&) = delete;
@@ -15,7 +15,7 @@ public:
     }
 
     void doSomething() {
-        std::cout << "饿汉式单例执行操作" << std::endl;
+        std::cout << "doSomething" << std::endl;
     }
 };
 
@@ -24,7 +24,7 @@ EagerSingleton EagerSingleton::instance;
 int main() {
     EagerSingleton& s1 = EagerSingleton::getInstance();
     EagerSingleton& s2 = EagerSingleton::getInstance();
-    std::cout << "s1与s2是否为同一实例：" << (&s1 == &s2 ? "是" : "否") << std::endl;
+    std::cout << "s1 and s2 is same ? " << (&s1 == &s2 ? "yes" : "no") << std::endl;
     s1.doSomething();
     return 0;
 }
