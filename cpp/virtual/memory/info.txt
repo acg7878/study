@@ -1,0 +1,12 @@
+*** Dumping AST Record Layout
+         0 | class Animal
+         0 |   (Animal vtable pointer)
+           | [sizeof=8, dsize=8, align=8,
+           |  nvsize=8, nvalign=8]
+
+*** Dumping AST Record Layout
+         0 | class Dog
+         0 |   class Animal (primary base)
+         0 |     (Animal vtable pointer)
+           | [sizeof=8, dsize=8, align=8,
+           |  nvsize=8, nvalign=8]
