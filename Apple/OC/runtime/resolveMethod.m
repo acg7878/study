@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#include <stdio.h>
 #import <objc/runtime.h>
 
 @interface Person : NSObject
@@ -9,25 +10,15 @@
 
 // 所有 Objective-C 方法底层都是 C 函数，默认带两个隐式参数：self 和 _cmd
 void runIMP(id self, SEL _cmd) {
-  NSLog(@"动态添加的 run 方法被调用了！");
-  NSLog(@"对象: %@", self);
-  NSLog(@"方法: %@", NSStringFromSelector(_cmd));
+  printf("run!!");
 }
 
 + (BOOL)resolveInstanceMethod:(SEL)sel {
-  NSLog(@"⚠️ 发现未实现的方法: %@", NSStringFromSelector(sel));
-
-  // 判断是不是要处理的那个方法
   if (sel == @selector(run)) {
-
-    // 获取类对象
     Class cls = [self class];
-
-    // 动态添加方法
     class_addMethod(cls, sel, (IMP)runIMP, "v@:");
     return YES;
   }
-
   return [super resolveInstanceMethod:sel];
 }
 
