@@ -7,3 +7,12 @@
 [submodule "Apple/interview/FBYInterview-iOS"]
 	path = Apple/interview/FBYInterview-iOS
 	url = https://github.com/fanbaoying/FBYInterview-iOS.git
+[submodule "Apple/source/objc4"]
+	path = Apple/source/objc4
+	url = https://github.com/apple-oss-distributions/objc4.git
+[submodule "Apple/source/CF"]
+	path = Apple/source/CF
+	url = https://github.com/apple-oss-distributions/CF.git
+[submodule "Apple/source/libs-base"]
+	path = Apple/source/libs-base
+	url = https://github.com/gnustep/libs-base.git
