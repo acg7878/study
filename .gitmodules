@@ -16,3 +16,9 @@
 [submodule "Apple/source/libs-base"]
 	path = Apple/source/oc/libs-base
 	url = https://github.com/gnustep/libs-base.git
+[submodule "Apple/source/3rd/AFNetworking"]
+	path = Apple/source/3rd/AFNetworking
+	url = https://github.com/AFNetworking/AFNetworking.git
+[submodule "Apple/source/3rd/Alamofire"]
+	path = Apple/source/3rd/Alamofire
+	url = https://github.com/Alamofire/Alamofire.git
