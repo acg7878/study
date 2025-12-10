@@ -1,0 +1,81 @@
+
+*** Dumping AST Record Layout
+         0 | class Animal
+         0 |   (Animal vtable pointer)
+         8 |   int age
+           | [sizeof=16, dsize=12, align=8,
+           |  nvsize=12, nvalign=8]
+
+*** Dumping AST Record Layout
+         0 | class Dog
+         0 |   class Animal (primary base)
+         0 |     (Animal vtable pointer)
+         8 |     int age
+           | [sizeof=16, dsize=12, align=8,
+           |  nvsize=12, nvalign=8]
+
+*** Dumping IRgen Record Layout
+Record: [0;1;32mCXXRecordDecl[0m[0;33m 0x7fd124a18[0m <[0;33mmain.cpp:1:1[0m, [0;33mline:4:1[0m> [0;33mline:1:7[0m referenced class[0;1;36m Animal[0m definition
+[0;34m|-[0m[0;1;32mDefinitionData[0m polymorphic abstract
+[0;34m| |-[0m[0;1;32mDefaultConstructor[0m exists non_trivial
+[0;34m| |-[0m[0;1;32mCopyConstructor[0m simple non_trivial has_const_param implicit_has_const_param
+[0;34m| |-[0m[0;1;32mMoveConstructor[0m exists simple non_trivial
+[0;34m| |-[0m[0;1;32mCopyAssignment[0m simple non_trivial has_const_param implicit_has_const_param
+[0;34m| |-[0m[0;1;32mMoveAssignment[0m exists simple non_trivial
+[0;34m| `-[0m[0;1;32mDestructor[0m simple irrelevant trivial
+[0;34m|-[0m[0;1;32mCXXRecordDecl[0m[0;33m 0x7fd124b38[0m <[0;33mcol:1[0m, [0;33mcol:7[0m> [0;33mcol:7[0m implicit class[0;1;36m Animal[0m
+[0;34m|-[0m[0;1;32mCXXMethodDecl[0m[0;33m 0x7fd124c50[0m <[0;33mline:2:3[0m, [0;33mcol:26[0m> [0;33mcol:16[0m[0;1;36m spark[0m [0;32m'void ()'[0m virtual pure
+[0;34m|-[0m[0;1;32mFieldDecl[0m[0;33m 0x7fd124d10[0m <[0;33mline:3:3[0m, [0;33mcol:7[0m> [0;33mcol:7[0m[0;1;36m age[0m [0;32m'int'[0m
+[0;34m|-[0m[0;1;32mCXXMethodDecl[0m[0;33m 0x7fd124e50[0m <[0;33mline:1:7[0m> [0;33mcol:7[0m implicit[0;1;36m operator=[0m [0;32m'Animal &(const Animal &)'[0m inline default noexcept-unevaluated 0x7fd124e50
+[0;34m| `-[0m[0;1;32mParmVarDecl[0m[0;33m 0x7fd124f80[0m <[0;33mcol:7[0m> [0;33mcol:7[0m [0;32m'const Animal &'[0m
+[0;34m|-[0m[0;1;32mCXXMethodDecl[0m[0;33m 0x7fd151060[0m <[0;33mcol:7[0m> [0;33mcol:7[0m implicit[0;1;36m operator=[0m [0;32m'Animal &(Animal &&)'[0m inline default noexcept-unevaluated 0x7fd151060
+[0;34m| `-[0m[0;1;32mParmVarDecl[0m[0;33m 0x7fd151190[0m <[0;33mcol:7[0m> [0;33mcol:7[0m [0;32m'Animal &&'[0m
+[0;34m|-[0m[0;1;32mCXXDestructorDecl[0m[0;33m 0x7fd151228[0m <[0;33mcol:7[0m> [0;33mcol:7[0m implicit[0;1;36m ~Animal[0m [0;32m'void ()'[0m inline default trivial noexcept-unevaluated 0x7fd151228
+[0;34m|-[0m[0;1;32mCXXConstructorDecl[0m[0;33m 0x7fd179970[0m <[0;33mcol:7[0m> [0;33mcol:7[0m implicit used[0;1;36m Animal[0m [0;32m'void () noexcept'[0m inline default
+[0;34m| `-[0m[0;1;35mCompoundStmt[0m[0;33m 0x7fd17a1e0[0m <[0;33mcol:7[0m>
+[0;34m|-[0m[0;1;32mCXXConstructorDecl[0m[0;33m 0x7fd179a58[0m <[0;33mcol:7[0m> [0;33mcol:7[0m implicit constexpr[0;1;36m Animal[0m [0;32m'void (const Animal &)'[0m inline default noexcept-unevaluated 0x7fd179a58
+[0;34m| `-[0m[0;1;32mParmVarDecl[0m[0;33m 0x7fd179b90[0m <[0;33mcol:7[0m> [0;33mcol:7[0m [0;32m'const Animal &'[0m
+[0;34m`-[0m[0;1;32mCXXConstructorDecl[0m[0;33m 0x7fd179c10[0m <[0;33mcol:7[0m> [0;33mcol:7[0m implicit constexpr[0;1;36m Animal[0m [0;32m'void (Animal &&)'[0m inline default noexcept-unevaluated 0x7fd179c10
+[0;34m  `-[0m[0;1;32mParmVarDecl[0m[0;33m 0x7fd179d40[0m <[0;33mcol:7[0m> [0;33mcol:7[0m [0;32m'Animal &&'[0m
+
+Layout: <CGRecordLayout
+  LLVMType:%class.Animal = type <{ ptr, i32, [4 x i8] }>
+  NonVirtualBaseLLVMType:%class.Animal.base = type <{ ptr, i32 }>
+  IsZeroInitializable:1
+  BitFields:[
+]>
+
+*** Dumping IRgen Record Layout
+Record: [0;1;32mCXXRecordDecl[0m[0;33m 0x7fd151318[0m <[0;33mmain.cpp:6:1[0m, [0;33mline:8:1[0m> [0;33mline:6:7[0m referenced class[0;1;36m Dog[0m definition
+[0;34m|-[0m[0;1;32mDefinitionData[0m polymorphic
+[0;34m| |-[0m[0;1;32mDefaultConstructor[0m exists non_trivial
+[0;34m| |-[0m[0;1;32mCopyConstructor[0m simple non_trivial has_const_param implicit_has_const_param
+[0;34m| |-[0m[0;1;32mMoveConstructor[0m exists simple non_trivial
+[0;34m| |-[0m[0;1;32mCopyAssignment[0m simple non_trivial has_const_param implicit_has_const_param
+[0;34m| |-[0m[0;1;32mMoveAssignment[0m exists simple non_trivial
+[0;34m| `-[0m[0;1;32mDestructor[0m simple irrelevant trivial
+[0;34m|-[0mpublic [0;32m'Animal'[0m
+[0;34m|-[0m[0;1;32mCXXRecordDecl[0m[0;33m 0x7fd151478[0m <[0;33mcol:1[0m, [0;33mcol:7[0m> [0;33mcol:7[0m implicit class[0;1;36m Dog[0m
+[0;34m|-[0m[0;1;32mCXXMethodDecl[0m[0;33m 0x7fd151560[0m <[0;33mline:7:3[0m, [0;33mcol:17[0m> [0;33mcol:8[0m[0;1;36m spark[0m [0;32m'void ()'[0m implicit-inline
+[0;34m| |-[0mOverrides: [ 0x7fd124c50 Animal::spark 'void ()' ]
+[0;34m| `-[0m[0;1;35mCompoundStmt[0m[0;33m 0x7fd151bb8[0m <[0;33mcol:16[0m, [0;33mcol:17[0m>
+[0;34m|-[0m[0;1;32mCXXMethodDecl[0m[0;33m 0x7fd151700[0m <[0;33mline:6:7[0m> [0;33mcol:7[0m implicit[0;1;36m operator=[0m [0;32m'Dog &(const Dog &)'[0m inline default noexcept-unevaluated 0x7fd151700
+[0;34m| `-[0m[0;1;32mParmVarDecl[0m[0;33m 0x7fd151830[0m <[0;33mcol:7[0m> [0;33mcol:7[0m [0;32m'const Dog &'[0m
+[0;34m|-[0m[0;1;32mCXXMethodDecl[0m[0;33m 0x7fd151900[0m <[0;33mcol:7[0m> [0;33mcol:7[0m implicit[0;1;36m operator=[0m [0;32m'Dog &(Dog &&)'[0m inline default noexcept-unevaluated 0x7fd151900
+[0;34m| `-[0m[0;1;32mParmVarDecl[0m[0;33m 0x7fd151a30[0m <[0;33mcol:7[0m> [0;33mcol:7[0m [0;32m'Dog &&'[0m
+[0;34m|-[0m[0;1;32mCXXDestructorDecl[0m[0;33m 0x7fd151ac8[0m <[0;33mcol:7[0m> [0;33mcol:7[0m implicit[0;1;36m ~Dog[0m [0;32m'void ()'[0m inline default trivial noexcept-unevaluated 0x7fd151ac8
+[0;34m|-[0m[0;1;32mCXXConstructorDecl[0m[0;33m 0x7fd179870[0m <[0;33mcol:7[0m> [0;33mcol:7[0m implicit used[0;1;36m Dog[0m [0;32m'void () noexcept'[0m inline default
+[0;34m| |-[0mCXXCtorInitializer [0;32m'Animal'[0m
+[0;34m| | `-[0m[0;1;35mCXXConstructExpr[0m[0;33m 0x7fd17a1f0[0m <[0;33mcol:7[0m> [0;32m'Animal'[0m[0;36m[0m[0;36m[0m [0;32m'void () noexcept'[0m
+[0;34m| `-[0m[0;1;35mCompoundStmt[0m[0;33m 0x7fd17a250[0m <[0;33mcol:7[0m>
+[0;34m|-[0m[0;1;32mCXXConstructorDecl[0m[0;33m 0x7fd179dc0[0m <[0;33mcol:7[0m> [0;33mcol:7[0m implicit constexpr[0;1;36m Dog[0m [0;32m'void (const Dog &)'[0m inline default noexcept-unevaluated 0x7fd179dc0
+[0;34m| `-[0m[0;1;32mParmVarDecl[0m[0;33m 0x7fd179ef0[0m <[0;33mcol:7[0m> [0;33mcol:7[0m [0;32m'const Dog &'[0m
+[0;34m`-[0m[0;1;32mCXXConstructorDecl[0m[0;33m 0x7fd17a000[0m <[0;33mcol:7[0m> [0;33mcol:7[0m implicit constexpr[0;1;36m Dog[0m [0;32m'void (Dog &&)'[0m inline default noexcept-unevaluated 0x7fd17a000
+[0;34m  `-[0m[0;1;32mParmVarDecl[0m[0;33m 0x7fd17a130[0m <[0;33mcol:7[0m> [0;33mcol:7[0m [0;32m'Dog &&'[0m
+
+Layout: <CGRecordLayout
+  LLVMType:%class.Dog = type { %class.Animal.base, [4 x i8] }
+  NonVirtualBaseLLVMType:%class.Dog.base = type { %class.Animal.base }
+  IsZeroInitializable:1
+  BitFields:[
+]>
