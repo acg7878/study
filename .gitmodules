@@ -22,3 +22,6 @@
 [submodule "Apple/source/3rd/Alamofire"]
 	path = Apple/source/3rd/Alamofire
 	url = https://github.com/Alamofire/Alamofire.git
+[submodule "Apple/source/3rd/SDWebImage"]
+	path = Apple/source/3rd/SDWebImage
+	url = https://github.com/SDWebImage/SDWebImage.git
