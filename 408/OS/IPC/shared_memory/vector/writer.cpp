@@ -26,7 +26,7 @@ int main() {
         return 1;
     }
 
-    // 2. 映射
+    // 映射
     void* ptr = mmap(0, shm_size, PROT_READ | PROT_WRITE, MAP_SHARED, shm_fd, 0);
     if (ptr == MAP_FAILED) {
         perror("mmap");
