@@ -1,7 +1,6 @@
 #include <climits>  // 为了使用 INT_MAX
 #include <string>
 #include <unordered_map>
-#include <vector>
 
 using namespace std;
 
