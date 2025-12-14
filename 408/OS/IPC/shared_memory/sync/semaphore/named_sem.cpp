@@ -37,7 +37,7 @@ int main() {
   data->counter = 0;
 
   // 创建并初始化有名信号量
-  // 参数: 名字, 标志位, 权限, 初始值(1表示互斥锁)
+  // 参数: 名字, 标志位, 权限, 初始值(表示资源可用数，1同等于互斥锁)
   // 如果已存在则打开，否则创建
   sem_t* sem = sem_open(SEM_NAME, O_CREAT, 0666, 1);
   if (sem == SEM_FAILED) {
