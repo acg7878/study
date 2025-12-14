@@ -7,6 +7,8 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
+// std::mutex是用于线程间同步的
+
 // 定义放在共享内存里的结构体
 struct SharedData {
   pthread_mutex_t mutex;  // 互斥锁
