@@ -24,20 +24,20 @@ class Solution {
       }
       um[s[right]]--;
 
-      if (right - left + 1 < min_len) {
-        start_index = left;
-        min_len = right - left + 1;
-      }
-
       // 尝试收缩
       while (cnt == 0) {
+        if (right - left + 1 < min_len) {
+          start_index = left;
+          min_len = right - left + 1;
+        }
         if (um[s[left]] == 0) {
-            cnt++;
+          cnt++;
         }
         um[s[left]]++;
         left++;
       }
       right++;
     }
+    return min_len == INT_MAX ? "" : s.substr(start_index, min_len);
   }
 };
