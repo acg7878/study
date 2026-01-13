@@ -3,6 +3,17 @@
 #include <unordered_map>
 using namespace std;
 
+/*
+    链接：https://leetcode.cn/problems/minimum-window-substring/
+    思路：
+        1.滑动窗口
+        2.逻辑
+            2.1 先消费，判断是不是在哈希表内，是的话将cnt--；
+            2.2 判断cnt是否归零，是的话，对比min_len,记录start_index和长度
+            2.3 尝试收缩，left开始向前
+*/
+
+
 class Solution {
  public:
   string minWindow(string s, string t) {
