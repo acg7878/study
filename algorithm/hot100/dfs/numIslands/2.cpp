@@ -29,7 +29,7 @@ class Solution {
 
   void dfs(vector<vector<char>>& grid, int i, int j) {
     // 跳过边界和不为陆地的
-    if (i < 0 || i > m || j < 0 || j > n || grid[i][j] != '1') {
+    if (i < 0 || i >= m || j < 0 || j >= n || grid[i][j] != '1') {
       return;
     }
     grid[i][j] = '0';
