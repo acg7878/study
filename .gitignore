@@ -4,3 +4,4 @@ output/
 build/
 .cache
 buildServer.json
+.baidu-cc
